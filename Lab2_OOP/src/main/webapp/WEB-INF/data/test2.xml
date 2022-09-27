@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ValCurs Date="23" name="23">
+    <Valute id="23">
+        <NumCode>23</NumCode>
+        <CharCode>23</CharCode>
+        <Nominal>23</Nominal>
+        <Name>23</Name>
+        <Value>23</Value>
+    </Valute>
+</ValCurs>
