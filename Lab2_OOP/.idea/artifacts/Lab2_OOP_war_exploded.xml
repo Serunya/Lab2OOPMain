@@ -13,13 +13,6 @@
         <element id="directory" name="classes">
           <element id="module-output" name="Lab2_OOP" />
         </element>
-        <element id="directory" name="lib">
-          <element id="library" level="project" name="Maven: com.sun.xml.bind:jaxb-core:2.3.0.1" />
-          <element id="library" level="project" name="Maven: javax.xml.bind:jaxb-api:2.3.1" />
-          <element id="library" level="project" name="Maven: javax.activation:javax.activation-api:1.2.0" />
-          <element id="library" level="project" name="Maven: com.sun.xml.bind:jaxb-impl:2.3.1" />
-          <element id="library" level="project" name="Maven: org.javassist:javassist:3.25.0-GA" />
-        </element>
       </element>
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/target/Lab2_OOP-1.0-SNAPSHOT/META-INF/MANIFEST.MF" />

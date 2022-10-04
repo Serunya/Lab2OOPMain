@@ -1,5 +1,6 @@
 package com.example.lab2oop5;
 
+import com.example.lab2oop5.Table.Metall;
 import com.example.lab2oop5.Table.ValuteTableColumn;
 import com.example.lab2oop5.Table.oneDay;
 import com.example.lab2oop5.xml.allval.Valute;
@@ -110,6 +111,42 @@ public class Controller {
         }
 
         if(typeRequest.getValue().equals("Металлы")){
+            com.example.lab2oop5.xml.metall.Metall metall = JXCBController.getMettals(firstData.getValue(),secondData.getValue());
+            TableColumn<Metall,String> name = new TableColumn<>("Металл");
+            TableColumn<Metall,String> price = new TableColumn<>("Цена");
+            TableColumn<Metall,String> date = new TableColumn<>("Дата");
+            name.setCellValueFactory(new PropertyValueFactory<Metall,String>("name"));
+            price.setCellValueFactory(new PropertyValueFactory<Metall,String>("price"));
+            date.setCellValueFactory(new PropertyValueFactory<Metall,String>("date"));
+            table.getColumns().add(name);
+            table.getColumns().add(price);
+            table.getColumns().add(date);
+            XYChart.Series<String, Number> series1 = new XYChart.Series<>();
+            XYChart.Series<String, Number> series2 = new XYChart.Series<>();
+            XYChart.Series<String, Number> series3 = new XYChart.Series<>();
+            XYChart.Series<String, Number> series4 = new XYChart.Series<>();
+            series1.setName("Золото");
+            series2.setName("Серебро");
+            series3.setName("Платина");
+            series4.setName("Паладий");
+            for(com.example.lab2oop5.xml.metall.Record r: metall.getMettals()){
+                   table.getItems().add(new Metall(r.getCode(),r.getPrice(),r.getDate()));
+                   double priceS = Double.parseDouble(r.getPrice().replace(',','.'));
+                   switch (r.getCode()){
+                       case("1")->{
+                           series1.getData().add(new XYChart.Data<>(r.getDate(),priceS));
+                       }
+                       case("2")->{
+                           series2.getData().add(new XYChart.Data<>(r.getDate(),priceS));
+                       }
+                       case("3")-> series3.getData().add(new XYChart.Data<>(r.getDate(),priceS));
+                       case("4")->{series4.getData().add(new XYChart.Data<>(r.getDate(),priceS));}
+                   }
+                   lineChart.getData().add(series1);
+                   lineChart.getData().add(series2);
+                   lineChart.getData().add(series3);
+                   lineChart.getData().add(series4);
+            }
 
         }
     }

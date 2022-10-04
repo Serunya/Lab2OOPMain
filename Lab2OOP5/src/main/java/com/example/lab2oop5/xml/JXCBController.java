@@ -1,6 +1,7 @@
 package com.example.lab2oop5.xml;
 
 import com.example.lab2oop5.xml.allval.ValuteCurs;
+import com.example.lab2oop5.xml.metall.Metall;
 import com.example.lab2oop5.xml.oneval.ValCurs;
 import com.example.lab2oop5.xml.valcode.Item;
 import com.example.lab2oop5.xml.valcode.Valuta;
@@ -19,8 +20,24 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.LocalDate;
 
-public class   JXCBController {
+public class JXCBController {
 
+
+
+    public static Metall getMettals(LocalDate firstDate, LocalDate secondDate){
+        String Date1 = NormalizeData(firstDate);
+        String Date2 = NormalizeData(secondDate);
+        try {
+            String url  = "http://www.cbr.ru/scripts/xml_metall.asp?date_req1="+Date1+"&date_req2=" + Date2;
+            HttpURLConnection con = (HttpURLConnection) new URL(url).openConnection();
+            JAXBContext context = JAXBContext.newInstance(Metall.class);
+            Unmarshaller unmarshaller = context.createUnmarshaller();
+            return (Metall) unmarshaller.unmarshal(con.getInputStream());
+        } catch (IOException | JAXBException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
     public static ValuteCurs getOneDay(LocalDate firstDate){
         String date = NormalizeData(firstDate);
