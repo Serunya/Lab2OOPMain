@@ -19,9 +19,7 @@
             <div class="formbuilder-date form-group field-date-1664267992149-0"><label for="date-1664267992149-0"
                                                                                        class="formbuilder-date-label">Дата</label><input
                     type="date" class="form-control" name="date-1664267992149-0" id="date-1664267992149-0"></div>
-            <div class="formbuilder-textarea form-group field-textarea-1664268002240-0"><label
-                    for="textarea-1664268002240-0" class="formbuilder-textarea-label">Текстовое поле</label><textarea
-                    class="form-control" name="textarea-1664268002240-0" id="textarea-1664268002240-0"></textarea></div>
+            <button>Получить кортировки</button>
         </div>
     </form>
 </body>

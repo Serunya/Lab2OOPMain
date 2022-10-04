@@ -1,32 +1,32 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=windows-1251" language="java" %>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>РђРІС‚РѕСЂРёР·Р°С†РёСЏ</title>
+    <title>Авторизация</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/pages/css/style.css">
 </head>
 
 <body>
-<h1>Р’С…РѕРґ</h1>
+<h1>Вход</h1>
 <div id="wrapper">
     <form id="signin" method="get" action="/Lab2_OOP_war/Servlet" autocomplete="off">
-        <input type="text" id="user" name="login" placeholder="Р›РѕРіРёРЅ"/>
-        <input type="password" id="pass" name="password" placeholder="РџР°СЂРѕР»СЊ">
+        <input type="text" id="user" name="login" placeholder="Логин"/>
+        <input type="password" id="pass" name="password" placeholder="Пароль">
         <%
             Integer tr = (Integer) request.getSession().getAttribute("tryAutorize");
             if (tr == null || tr < 3) {
         %>
         <button type='submit'>&#xf0da;</button>
         <% if (tr != null) {
-            response.getWriter().printf("<p style='color:#FFFFFF;'>РџРѕРїС‹С‚РєР° РЅРѕРјРµСЂ %d</p>", tr);
+            response.getWriter().printf("<p style='color:#FFFFFF;'>Попытка номер %d</p>", tr);
         }
         } else {
-            response.getWriter().println("<p style='color:#FFFFFF;'>РџСЂРµРІС‹С€РµРЅРѕ РєРѕР»-РІРѕ РїРѕРїС‹С‚РѕРє</p>");
+            response.getWriter().println("<p style='color:#FFFFFF;'>Превышено кол-во попыток</p>");
         }%>
 
 
-        <p>РќРµС‚ Р°РєРєР°СѓРЅС‚Р°: <a href="${pageContext.request.contextPath}/signUp">Р—Р°СЂРµРіРµСЃС‚СЂРёСЂРѕРІР°С‚СЊСЃСЏ</a></p>
+        <p>Нет аккаунта: <a href="${pageContext.request.contextPath}/signUp">Зарегестрироваться</a></p>
     </form>
 </div>
 
